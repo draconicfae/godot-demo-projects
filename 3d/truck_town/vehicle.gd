@@ -37,3 +37,8 @@ func _physics_process(delta):
 			steer_angle = steer_target
 	
 	steering = steer_angle
+	
+	#additions added to the draconicfae fork
+	if Input.is_action_just_pressed("ui_visibility"):
+		visible = !visible
+	
