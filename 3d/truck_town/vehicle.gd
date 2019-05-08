@@ -64,4 +64,12 @@ func _physics_process(delta):
 		else:
 			mode = RigidBody.MODE_RIGID
 		
+	#increase the force in moving vehicle	
+	if Input.is_action_just_pressed("ui_accelerate"):
+		engine_force_value += 5
+	
+	#decrease the force in moving vehicle
+	if Input.is_action_just_pressed("ui_decelerate"):
+		engine_force_value -= 5
+
 	##^^ additions added to the draconicfae fork ^^##
