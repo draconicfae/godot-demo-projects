@@ -55,4 +55,13 @@ func _physics_process(delta):
 	else:
 		gravity_scale = 1
 
+	#functionality to freeze the vehicle including in midair.
+	#note that when you resume all momentum is gone so 
+	#you'll fall straight down
+	if Input.is_action_just_pressed("ui_freeze"):
+		if mode == RigidBody.MODE_RIGID:
+			mode = RigidBody.MODE_KINEMATIC
+		else:
+			mode = RigidBody.MODE_RIGID
+		
 	##^^ additions added to the draconicfae fork ^^##
