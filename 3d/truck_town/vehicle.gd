@@ -48,5 +48,11 @@ func _physics_process(delta):
 	#ability to propel vehicle in reverse
 	if Input.is_action_pressed("ui_down"):
 		engine_force = -engine_force_value
-		
+
+	#antigravity functionality
+	if Input.is_action_pressed("ui_jump"):
+		gravity_scale = -1
+	else:
+		gravity_scale = 1
+
 	##^^ additions added to the draconicfae fork ^^##
