@@ -33,11 +33,20 @@ func _physics_process(delta):
 	
 	steering = steer_angle
 	
-	#additions added to the draconicfae fork
+	##vv additions added to the draconicfae fork vv##
+	
+	#ability to toggle the visibility of the vehicle
 	if Input.is_action_just_pressed("ui_visibility"):
 		visible = !visible
-	
+
+	#use ui_select for breaking instead of ui_down
 	if Input.is_action_pressed("ui_select"):
 		brake = 1
 	else:
 		brake = 0.0
+
+	#ability to propel vehicle in reverse
+	if Input.is_action_pressed("ui_down"):
+		engine_force = -engine_force_value
+		
+	##^^ additions added to the draconicfae fork ^^##
