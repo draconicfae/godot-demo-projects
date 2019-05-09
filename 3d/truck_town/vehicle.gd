@@ -6,9 +6,25 @@ const STEER_LIMIT = 0.4
 
 var steer_angle = 0
 var steer_target = 0
+var menu_initialized = false
+var menu_manager = null
 
 export var engine_force_value = 40
 
+func printee_one():
+	print("submenu tester 1")
+	
+func printee_two():
+	print("submenu tester 2")
+	
+func printee_three():
+	print("submenu tester 3")
+	
+func initialize_menu():
+	var basenode = get_node('/root/base')
+	menu_manager = basenode.call("get_menu_manager")
+	menu_manager.add_submenu_autokeys(self, "ui_testermenu", ["printee_one","printee_two","printee_three"])
+	
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		steer_target = STEER_LIMIT
@@ -34,6 +50,9 @@ func _physics_process(delta):
 	steering = steer_angle
 	
 	##vv additions added to the draconicfae fork vv##
+	if menu_initialized != true:
+		initialize_menu()
+		menu_initialized = true
 	
 	#ability to toggle the visibility of the vehicle
 	if Input.is_action_just_pressed("ui_visibility"):
@@ -71,5 +90,8 @@ func _physics_process(delta):
 	#decrease the force in moving vehicle
 	if Input.is_action_just_pressed("ui_decelerate"):
 		engine_force_value -= 5
+		
+	menu_manager.menuing_poll()
 
+    
 	##^^ additions added to the draconicfae fork ^^##
