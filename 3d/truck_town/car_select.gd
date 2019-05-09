@@ -31,12 +31,28 @@ func _on_van_2_pressed():
 func _on_van_3_pressed():
 	_load_scene("res://crane.tscn")
 
+func set_firstcement():
+	var res = load("res://Images/cement-one.png")
+	var mat = load("res://Materials/cement.material")
+	mat.albedo_texture = res
+
+func set_secondcement():
+	var res = load("res://Images/cement-two.png")
+	var mat = load("res://Materials/cement.material")
+	mat.albedo_texture = res
+
 func get_menu_manager():
 	return MenuManager
 	
 func initialize_menu():
 	MenuManager = load("menu_manager.gd").new()
 	MenuManager.add_submenu_autokeys(self,"ui_carswitch",["_on_van_1_pressed","_on_van_2_pressed","_on_van_3_pressed"])
+	
+	#ideally it would be nice to have the cement SpatialMaterial
+	#have its own management script but I tried that and it 
+	#doesn't seem to have get_node() access, and therefore I'm 
+	#not sure how I can provide the MenuManager to it.
+	MenuManager.add_submenu_autokeys(self,"ui_cementswitch",["set_firstcement","set_secondcement"])
 	
 func _physics_process(delta):
 	#it would be more ideal to have this in _init(), 
