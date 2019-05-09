@@ -23,7 +23,7 @@ func printee_three():
 func initialize_menu():
 	var basenode = get_node('/root/base')
 	menu_manager = basenode.call("get_menu_manager")
-	menu_manager.add_submenu_autokeys(self, "ui_testermenu", ["printee_one","printee_two","printee_three"])
+	menu_manager.add_submenu_autokeys("testermenu",self, "ui_testermenu", ["printee_one","printee_two","printee_three"])
 	
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):

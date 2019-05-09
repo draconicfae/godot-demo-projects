@@ -13,22 +13,22 @@ func menuing_poll():
 	if current_submenu == null:
 		for submenu in submenus:
 			var currmenu = submenus[submenu]
-			if Input.is_action_just_pressed(currmenu[0]):
+			if Input.is_action_just_pressed(currmenu[1]):
 				current_submenu = submenu
 				return
 	
 	if current_submenu != null:
 		#check to see if one of the submenu items has been activated and act on it if so
 		var currmenu = submenus[current_submenu]
-		for trigger in currmenu[1]:
+		for trigger in currmenu[2]:
 			if Input.is_action_just_pressed(trigger[0]):
-				current_submenu.call(trigger[1])
+				currmenu[0].call(trigger[1])
 				current_submenu = null
 				
 
-func add_submenu_autokeys(source_script, ui_trigger, callbacks):
+func add_submenu_autokeys(source_key, source_class, ui_trigger, callbacks):
 	var keyed_entries = []
 	
 	for i in range(0,len(callbacks)):
 		keyed_entries.append([autokeys[i],callbacks[i]])
-	submenus[source_script] = [ui_trigger, keyed_entries]
+	submenus[source_key] = [source_class,ui_trigger, keyed_entries]
