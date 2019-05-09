@@ -41,6 +41,16 @@ func set_secondcement():
 	var mat = load("res://Materials/cement.material")
 	mat.albedo_texture = res
 
+func set_firstgrass():
+	var res = load("res://Images/grass-one.png")
+	var mat = load("res://Materials/grass.material")
+	mat.albedo_texture = res
+	
+func set_secondgrass():
+	var res = load("res://Images/grass-two.png")
+	var mat = load("res://Materials/grass.material")
+	mat.albedo_texture = res
+
 func get_menu_manager():
 	return MenuManager
 	
@@ -53,6 +63,10 @@ func initialize_menu():
 	#doesn't seem to have get_node() access, and therefore I'm 
 	#not sure how I can provide the MenuManager to it.
 	MenuManager.add_submenu_autokeys(self,"ui_cementswitch",["set_firstcement","set_secondcement"])
+	
+	#as with cement, would be nice to have grass SpatialMaterial
+	#handle this
+	MenuManager.add_submenu_autokeys(self,"ui_grasswitch",["set_firstgrass","set_secondgrass"])
 	
 func _physics_process(delta):
 	#it would be more ideal to have this in _init(), 
