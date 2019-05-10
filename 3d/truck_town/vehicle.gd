@@ -8,6 +8,7 @@ var steer_angle = 0
 var steer_target = 0
 var menu_initialized = false
 var menu_manager = null
+var pilot = 1
 
 export var engine_force_value = 40
 
@@ -27,14 +28,14 @@ func initialize_menu():
 	
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
-		steer_target = STEER_LIMIT
+		steer_target = STEER_LIMIT * pilot
 	elif Input.is_action_pressed("ui_right"):
-		steer_target = -STEER_LIMIT
+		steer_target = -STEER_LIMIT * pilot
 	else:
 		steer_target = 0
 	
 	if Input.is_action_pressed("ui_up"):
-		engine_force = engine_force_value
+		engine_force = engine_force_value * pilot
 	else:
 		engine_force = 0
 		
@@ -66,7 +67,7 @@ func _physics_process(delta):
 
 	#ability to propel vehicle in reverse
 	if Input.is_action_pressed("ui_down"):
-		engine_force = -engine_force_value
+		engine_force = -engine_force_value * pilot
 
 	#antigravity functionality
 	if Input.is_action_pressed("ui_jump"):
@@ -90,6 +91,9 @@ func _physics_process(delta):
 	#decrease the force in moving vehicle
 	if Input.is_action_just_pressed("ui_decelerate"):
 		engine_force_value -= 5
+		
+	if Input.is_action_just_pressed("ui_pilotcontrols"):
+		pilot = pilot * -1
 		
 	menu_manager.menuing_poll()
 
