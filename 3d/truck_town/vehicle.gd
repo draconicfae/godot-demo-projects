@@ -9,6 +9,8 @@ var steer_target = 0
 var menu_initialized = false
 var menu_manager = null
 var pilot = 1
+var synchronous = true
+var controls_enabled = true
 
 export var engine_force_value = 40
 
@@ -26,7 +28,14 @@ func initialize_menu():
 	menu_manager = basenode.call("get_menu_manager")
 	menu_manager.add_submenu_autokeys("testermenu",self, "ui_testermenu", ["printee_one","printee_two","printee_three"])
 	
+func disable_controls_unless_synchronous():
+	if synchronous == false:
+		controls_enabled = false
+		
 func _physics_process(delta):
+	if controls_enabled == false:
+		return
+		
 	if Input.is_action_pressed("ui_left"):
 		steer_target = STEER_LIMIT * pilot
 	elif Input.is_action_pressed("ui_right"):
@@ -94,6 +103,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_pilotcontrols"):
 		pilot = pilot * -1
+		
+	if Input.is_action_just_pressed("ui_togglesynchronous"):
+		synchronous = !synchronous
 		
 	menu_manager.menuing_poll()
 

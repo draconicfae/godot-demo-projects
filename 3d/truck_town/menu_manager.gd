@@ -29,6 +29,11 @@ func menuing_poll():
 func add_submenu_autokeys(source_key, source_class, ui_trigger, callbacks):
 	var keyed_entries = []
 	
+	#this is a quick hack that breaks the generic modularity of menu_manager
+	#I'll fix it later...
+	if source_key == 'testermenu' and submenus.has('testermenu'):
+		submenus[source_key][0].call('disable_controls_unless_synchronous')
+		
 	for i in range(0,len(callbacks)):
 		keyed_entries.append([autokeys[i],callbacks[i]])
 	submenus[source_key] = [source_class,ui_trigger, keyed_entries]
