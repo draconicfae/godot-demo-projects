@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/469312__inspectorj__exotic-creature-song-01.wav-44e201e40a722064ba766f70c0459c7e.sample"
+
+[deps]
+
+source_file="res://Audio/469312__inspectorj__exotic-creature-song-01.wav"
+dest_files=[ "res://.import/469312__inspectorj__exotic-creature-song-01.wav-44e201e40a722064ba766f70c0459c7e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

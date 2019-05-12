@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/469624__klankbeeld__calm-forest-heathland-02-190509-1379.wav-e5c7e00e7eab9ea6c324ff6055788a01.sample"
+
+[deps]
+
+source_file="res://Audio/469624__klankbeeld__calm-forest-heathland-02-190509-1379.wav"
+dest_files=[ "res://.import/469624__klankbeeld__calm-forest-heathland-02-190509-1379.wav-e5c7e00e7eab9ea6c324ff6055788a01.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

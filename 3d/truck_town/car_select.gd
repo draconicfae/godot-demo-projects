@@ -54,6 +54,42 @@ func set_secondgrass():
 func get_menu_manager():
 	return MenuManager
 	
+func firsthorn():
+	var sampy = load("res://Audio/469312__inspectorj__exotic-creature-song-01.wav")
+	sampy.data = PoolByteArray(sampy.data.subarray(247842,495029))
+	#sampy.data = PoolByteArray(sampy.data.subarray(0,495029))
+	$Horn.set_stream(sampy)
+	$Horn.play()
+	
+func secondhorn():
+	var sampy = load("res://Audio/468752__brunoboselli__triangle.wav")
+	sampy.data = PoolByteArray(sampy.data.subarray(0,200000))
+	$Horn.set_stream(sampy)
+	$Horn.play()
+	
+func thirdhorn():
+	var sampy = load("res://Audio/468695__ethanchase7744__sword-fast-unsheath.wav")
+	$Horn.set_stream(sampy)
+	$Horn.play()
+	
+func firstmusic():
+	$Soundtrack.set_stream(null)
+	
+func secondmusic():
+	var mussy = load("res://Audio/469624__klankbeeld__calm-forest-heathland-02-190509-1379.wav")
+	$Soundtrack.set_stream(mussy)
+	$Soundtrack.play()
+	
+func thirdmusic():
+	var mussy = load("res://Audio/469425__ddmyzik__infographic-news-loop.wav")
+	$Soundtrack.set_stream(mussy)
+	$Soundtrack.play()
+	
+func fourthmusic():
+	var mussy = load("res://Audio/468924__humanoide9000__orchestral-royal-theme-fanfare.wav")
+	$Soundtrack.set_stream(mussy)
+	$Soundtrack.play()
+	
 func initialize_menu():
 	MenuManager = load("menu_manager.gd").new()
 	MenuManager.add_submenu_autokeys("carswitching",self,"ui_carswitch",["_on_van_1_pressed","_on_van_2_pressed","_on_van_3_pressed"])
@@ -67,6 +103,10 @@ func initialize_menu():
 	#as with cement, would be nice to have grass SpatialMaterial
 	#handle this
 	MenuManager.add_submenu_autokeys("grasswitching",self,"ui_grasswitch",["set_firstgrass","set_secondgrass"])
+	
+	#audio submenus
+	MenuManager.add_submenu_autokeys("horn",self,"ui_horn",["firsthorn","secondhorn","thirdhorn"])
+	MenuManager.add_submenu_autokeys("music",self,"ui_music",["firstmusic","secondmusic","thirdmusic","fourthmusic"])
 	
 func _physics_process(delta):
 	#it would be more ideal to have this in _init(), 

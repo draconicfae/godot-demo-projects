@@ -1,7 +1,7 @@
 extends Node
 
 var submenus = {}
-var autokeys = ['ui_one','ui_two','ui_three']
+var autokeys = ['ui_one','ui_two','ui_three','ui_four']
 var current_submenu = null
 
 # Called when the node enters the scene tree for the first time.
