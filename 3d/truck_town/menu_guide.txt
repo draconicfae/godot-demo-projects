@@ -1,0 +1,38 @@
+<<Immediate Options (no submenu)>>
+(space) : apply the brake\
+(up arrow): move vehicle forward
+(left arrow): turn vehicle left
+(right arrow): turn vehicle right
+(down arrow): move vehicle in reverse
+(j): jump/antigravity
+(f): freeze/unfreeze the vehicle, including if it's midair.  This also takes away all momentum.
+(v): make vehicle visible/invisible
+(a): accelerate (increases engine force when you choose to move)
+(d): decelerate (decreases engine force when you choose to move)
+(s): synchronize/desynchronize vehicle controls.  When synchronized, if you add a new vehicle the previous vehicle(s) still respond to the controls.  If desynchronized, only the newest vehicle responds to the controls.
+(p): pilot/regular controls.  If pilot, driving is reversed.. forward is back and back is forward, left is right and right is left.
+(k): free/follow camera.  Doesn't work very well but is intended to allow you to use the camera to explore, unattached to the vehicle, then snap back to the vehicle when you hit k again.  It actually isn't snapping back right now and the free camera is pretty clunky.
+
+<<Submenu: cement switching (change texture for the road)>>
+menu trigger: t
+options 1 to 2
+
+<<Submenu: grass switching (change texture for the grass)>>
+menu trigger: g
+options 1 to 2
+
+<<Submenu: horn honking (play a short sound, imagine it's your vehicle horn sound)>>
+menu trigger: h
+options 1 to 3
+
+<<Submenu: music (play longer sound, background music)>>
+menu trigger: m
+options 1 to 4 (1 is silence)
+
+<<Submenu: console messages (functions which just print to console)>>
+menu trigger: z
+options 1 to 3
+
+<<Submenu: spawn vehicle (create a new vehicle.  Old vehicle(s) is/are still around too)>>
+menu trigger: c
+options 1 to 3
