@@ -11,6 +11,7 @@ var menu_manager = null
 var pilot = 1
 var synchronous = true
 var controls_enabled = true
+var cruising = false
 
 export var engine_force_value = 40
 
@@ -45,7 +46,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_up"):
 		engine_force = engine_force_value * pilot
-	else:
+	elif !cruising:
 		engine_force = 0
 		
 	if steer_target < steer_angle:
@@ -106,6 +107,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_togglesynchronous"):
 		synchronous = !synchronous
+		
+	if Input.is_action_just_pressed("ui_holdaccelerate"):
+		cruising = !cruising
 		
 	menu_manager.menuing_poll()
 
